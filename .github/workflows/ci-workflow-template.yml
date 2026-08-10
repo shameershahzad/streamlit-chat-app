@@ -62,16 +62,6 @@ jobs:
       - name: Run project build/test/lint
         shell: powershell
         run: |
-          Write-Host "==> Build step"
-          Write-Host "Build OK (placeholder - simulating successful build)"
-
-          Write-Host "==> Test step"
-          Write-Host "Running test suite (placeholder)..."
-          Write-Host "5 passed, 0 failed"
-
-          Write-Host "==> Lint step"
-          Write-Host "Linting source files (placeholder)..."
-          Write-Host "No lint errors found"
-
-          Write-Host "Build, Test & Lint completed successfully"
-          exit 0
+          Write-Host "REPLACE ME: add your real build command"
+          Write-Host "REPLACE ME: add your real test command"
+          Write-Host "REPLACE ME: add your real lint command"
