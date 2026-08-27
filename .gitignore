@@ -1,9 +1,8 @@
-# Dependencies
-node_modules/
-
-# Production Build
-dist/
-build/
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
 
 # Local Environment/API Keys
 .env
