@@ -1,6 +1,6 @@
-# 💬 Streamlit AI Chat App (Ollama + UV)
+# 💬 Streamlit AI Chat App (Ollama + LangChain)
 
-A simple AI-powered chat application built with Streamlit and Ollama (local LLMs).  
+A simple AI-powered chat application built with Streamlit and Ollama (local LLMs).
 It uses `st.session_state` to maintain conversation memory and provides a ChatGPT-like experience in the browser.
 
 ## 🚀 Features
@@ -17,15 +17,14 @@ It uses `st.session_state` to maintain conversation memory and provides a ChatGP
 - Streamlit 🎈
 - Ollama 🦙
 - LangChain (for message handling)
-- UV (virtual environment manager)
 
 ## 📂 Project Structure
 
 ```
 streamlit-chat-app/
 │
-├── app.py              # Streamlit frontend
-├── memory_chatbot.py   # Ollama backend logic
+├── main.py             # Streamlit frontend
+├── model.py             # Ollama backend logic
 ├── requirements.txt
 └── README.md
 ```
@@ -34,13 +33,13 @@ streamlit-chat-app/
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/your-username/streamlit-chat-app.git
+git clone https://github.com/shameershahzad/streamlit-chat-app.git
 cd streamlit-chat-app
 ```
 
-### 2. Create Virtual Environment (UV)
+### 2. Create Virtual Environment
 ```bash
-uv venv
+python -m venv .venv
 ```
 
 Activate it:
@@ -61,27 +60,15 @@ pip install -r requirements.txt
 ```
 
 ### 4. Run Ollama Model
-Make sure Ollama is installed:
+Make sure [Ollama](https://ollama.com) is installed, then pull the model used by this app:
 
 ```bash
-ollama run llama3
+ollama pull llama3.2
 ```
 
-(You can also use mistral, phi, codellama, etc.)
-
-## 📦 requirements.txt
-
-```txt
-streamlit
-ollama
-langchain
-langchain-community
-```
-
-## ▶️ Run Application
-
+### 5. Run Application
 ```bash
-python -m streamlit run app.py
+python -m streamlit run main.py
 ```
 
 ## 🧠 How It Works
@@ -95,17 +82,17 @@ st.session_state.memory = []
 
 ### Message Types
 
-- HumanMessage → user input  
-- AIMessage → AI response  
+- HumanMessage → user input
+- AIMessage → AI response
 
 ### Flow
 
-1. User enters message  
-2. Message stored in session state  
-3. Sent to Ollama backend  
-4. AI generates response  
-5. Response stored in memory  
-6. UI reruns and displays full chat history  
+1. User enters message
+2. Message stored in session state
+3. Sent to Ollama backend
+4. AI generates response
+5. Response stored in memory
+6. UI reruns and displays full chat history
 
 ## ⚡ Key Concept
 
@@ -114,4 +101,3 @@ Streamlit is stateless, so:
 👉 `st.session_state` acts as persistent memory for the chat
 
 Without it, chat history resets on every rerun.
-
